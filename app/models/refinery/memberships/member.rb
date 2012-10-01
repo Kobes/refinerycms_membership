@@ -35,7 +35,7 @@ module Refinery
 
       def add_to_member_until=(n)
         @add_to_member_until = n
-        extend_membership n.to_i if n && n.to_i > 0
+        renew_membership n.to_i if n && n.to_i > 0
       end
 
       def email=(e)
@@ -156,8 +156,8 @@ module Refinery
         save
       end
 
-      def extend!
-        extend_membership if Refinery::Setting::find_or_set('memberships_timed_accounts', true)
+      def renew!
+        renew_membership if Refinery::Setting::find_or_set('memberships_timed_accounts', true)
       end
 
       def reject!
@@ -212,7 +212,7 @@ module Refinery
         end
       end
 
-      def extend_membership(amount = 1)
+      def renew_membership(amount = 1)
 
         step = Refinery::Setting.find_or_set("memberships_default_account_validity", 12) # months
         amount = amount*step

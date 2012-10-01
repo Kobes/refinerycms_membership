@@ -28,7 +28,7 @@ Refinery::Core::Engine.routes.draw do
       resources :roles
       resources :members do
         member do
-          put :extend
+          put :renew
 
           put :enable
           put :disable

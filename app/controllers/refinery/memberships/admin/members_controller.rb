@@ -60,10 +60,10 @@ module Refinery
           params[:redirect_to_url].present? ? redirect_to(params[:redirect_to_url]) : super
         end
 
-        def extend
+        def renew
           find_member
           @member.seen!
-          @member.extend!
+          @member.renew!
           @member.reload
 
           MembershipMailer.deliver_member_accepted(@member)
