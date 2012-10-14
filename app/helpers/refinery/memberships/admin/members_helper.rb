@@ -32,9 +32,9 @@ module Refinery
     				:class => 'action'
         end
 
-        def extend(member)
+        def renew(member)
           link_to refinery_icon_tag('date_add.png') + t('extend', :scope => 'refinery.admin.members'),
-    				extend_admin_member_path(member),
+    				renew_admin_member_path(member),
     				#:title => t('extend', :scope => 'refinery.admin.members'),
     				:class => 'action'
         end
